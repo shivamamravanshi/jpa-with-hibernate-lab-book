@@ -16,15 +16,10 @@ public class AuthorEntityManager {
         Author author = new Author();
     }
 
-    public Author addAuthor(){
+    public Author addAuthor(Author author){
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
-        Author author = new Author();
-        author.setFirstName("Shivam");
-        author.setMiddleName("");
-        author.setLastName("Amravanshi");
-        author.setPhoneNo(9770838164L);
         entityManager.persist(author);
         transaction.commit();
         System.out.println("Author added, with authorId=" + author.getAuthorId());
